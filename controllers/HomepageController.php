@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Media;
+use App\Models\Location;
 
 class HomepageController extends BaseController
 {
@@ -10,8 +11,11 @@ class HomepageController extends BaseController
     {
         $data = [
             'greeting' => 'Ah que coucou !',
-            'medias' => Media::getHomepageSocialMedias()
+            'medias' => Media::getHomepageSocialMedias(),
+            'fromLocations' => Location::getHomepageLocations()
         ];
+        var_dump($data['fromLocations']);
+        die();
         return $this->view('homepage', $data);
     }
 

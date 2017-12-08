@@ -4,7 +4,7 @@ namespace App\Models;
 
 abstract class BaseModel
 {
-    public static $instance;
+    public static $instances = [];
 
     protected $connection;
 
@@ -20,15 +20,13 @@ abstract class BaseModel
 
     public static function __callStatic($method, $args = []) {
         $method = lcfirst(substr($method, 3));
-        return call_user_func_array([self::getInstance(), $method], $args);
+        return call_user_func_array([self::getInstance(get_called_class()), $method], $args);
     }
 
-    public static function getInstance()
+    public static function getInstance($class)
     {
-        if(self::$instance) return $self::$instance;
-        $class = get_called_class();
-        self::$instance = new $class();
-        return self::$instance;
+        if(!isset(self::$instances[$class])) self::$instances[$class] = new $class();
+        return self::$instances[$class];
     }
 
     protected function get($sql, $args = [])
