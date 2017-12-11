@@ -12,10 +12,8 @@ class HomepageController extends BaseController
         $data = [
             'greeting' => 'Ah que coucou !',
             'medias' => Media::getHomepageSocialMedias(),
-            'fromLocations' => Location::getHomepageLocations()
+            'locations' => Location::getHomepageLocations()
         ];
-        var_dump($data['fromLocations']);
-        die();
         return $this->view('homepage', $data);
     }
 

@@ -42,14 +42,14 @@ http://www.tooplate.com/view/2093-flight
                         <div class="tabs-content">
                             <h4><?= $greeting; ?></h4>
                             <ul class="social-links">
-<?php foreach($medias as $media): ?>
-    <li>
-        <a href="<?= $media->url; ?>">
-            <?= $media->label; ?>
-            <i class="fa fa-<?= $media->icon; ?>"></i>
-        </a>
-    </li>
-<?php endforeach; ?>
+                            <?php foreach($medias as $media): ?>
+                                <li>
+                                    <a href="<?= $media->url; ?>">
+                                        <?= $media->label; ?>
+                                        <i class="fa fa-<?= $media->icon; ?>"></i>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
                             </ul>
                         </div>
                         <div class="page-direction-button">
@@ -62,23 +62,17 @@ http://www.tooplate.com/view/2093-flight
                         <div id="tab1">
                             <div class="submit-form">
                                 <h4>Check availability for <em>direction</em>:</h4>
-                                <form id="form-submit" action="" method="get">
+                                <form id="form-submit" action="#" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <fieldset>
                                                 <label for="from">From:</label>
                                                 <select required name='from' onchange='this.form.()'>
-                                                    <option value="">Select a location...</option>
-                                                    <option value="Cambodia">Cambodia</option>
-                                                    <option value="Hong Kong">Hong Kong</option>
-                                                    <option value="India">India</option>
-                                                    <option value="Japan">Japan</option>
-                                                    <option value="Korea">Korea</option>
-                                                    <option value="Laos">Laos</option>
-                                                    <option value="Myanmar">Myanmar</option>
-                                                    <option value="Singapore">Singapore</option>
-                                                    <option value="Thailand">Thailand</option>
-                                                    <option value="Vietnam">Vietnam</option>
+                                                    <?php foreach($locations as $location): ?>
+                                                        <option value="<?= $location->code; ?>">
+                                                            <?= $location->country; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </fieldset>
                                         </div>
@@ -86,17 +80,11 @@ http://www.tooplate.com/view/2093-flight
                                             <fieldset>
                                                 <label for="to">To:</label>
                                                 <select required name='to' onchange='this.form.()'>
-                                                    <option value="">Select a location...</option>
-                                                    <option value="Cambodia">Cambodia</option>
-                                                    <option value="Hong Kong">Hong Kong</option>
-                                                    <option value="India">India</option>
-                                                    <option value="Japan">Japan</option>
-                                                    <option value="Korea">Korea</option>
-                                                    <option value="Laos">Laos</option>
-                                                    <option value="Myanmar">Myanmar</option>
-                                                    <option value="Singapore">Singapore</option>
-                                                    <option value="Thailand">Thailand</option>
-                                                    <option value="Vietnam">Vietnam</option>
+                                                    <?php foreach($locations as $location): ?>
+                                                        <option value="<?= $location->code; ?>">
+                                                            <?= $location->country; ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </fieldset>
                                         </div>
