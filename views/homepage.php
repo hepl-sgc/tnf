@@ -91,7 +91,7 @@ http://www.tooplate.com/view/2093-flight
                                         <div class="col-md-6">
                                             <fieldset>
                                                 <label for="departure">Departure date:</label>
-                                                <input name="deparure" type="text" class="form-control date" id="deparure" placeholder="Select date..." required="" onchange='this.form.()'>
+                                                <input name="departure" type="text" class="form-control date" id="departure" placeholder="Select date..." required="" onchange='this.form.()'>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-6">

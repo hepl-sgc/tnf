@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Media;
 use App\Models\Location;
+use App\Models\Order;
 
 class HomepageController extends BaseController
 {
@@ -19,7 +20,14 @@ class HomepageController extends BaseController
 
     public function save($data)
     {
-        // $data contient les données envoyées par le formulaire
-        // qu'il faudra gérer ici.
+        $from = Location::getLocationIdFromCode($data['from']);
+        $to = Location::getLocationIdFromCode($data['to']);
+        $departure = parseDateForSQL($data['departure']);
+        $return = parseDateForSQL($data['return']);
+        $oneway = ($data['trip'] == 'one-way') ? 1 : 0;
+
+        Order::setNewOrder($from, $to, $departure, $return, $oneway);
+
+        return $this->redirect('/');
     }
 }

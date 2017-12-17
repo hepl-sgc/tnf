@@ -13,4 +13,12 @@ class Location extends BaseModel
                 ]
             );
     }
+
+    public function locationIdFromCode($code)
+    {
+        $response = $this->get('SELECT id FROM locations WHERE code = :code;', [
+            'code' => $code
+        ]);
+        return $response[0]->id;
+    }
 }

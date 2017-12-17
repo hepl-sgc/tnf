@@ -1,5 +1,6 @@
 <?php
 include('./config.php');
+include('./functions.php');
 include('./controllers/BaseController.php');
 include('./controllers/HomepageController.php');
 include('./Models/BaseModel.php');
